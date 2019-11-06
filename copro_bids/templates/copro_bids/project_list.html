@@ -1,0 +1,10 @@
+<h2>Projects Open for Bids</h2>
+<ul>
+  {% for project in projects %}
+
+  <li>
+    <a href="">{{ project.code }}: {{ project.name }}</a>
+  </li>
+
+  {% endfor %}
+</ul>
