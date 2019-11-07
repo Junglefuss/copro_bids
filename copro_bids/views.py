@@ -39,6 +39,11 @@ def teammate_create(request):
             return redirect('teammate_detail', pk=teammate.pk)
 
 
+def teammate_list(request):
+    teammates = Teammate.objects.all()
+    return render(request, 'copro_bids/teammate_list.html', {'teammates': teammates})
+
+
 def teammate_detail(request, pk):
     teammate = Teammate.objects.get(id=pk)
     return render(request, 'copro_bids/teammate_detail.html', {'teammate': teammate})

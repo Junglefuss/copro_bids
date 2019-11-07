@@ -7,6 +7,7 @@ urlpatterns = [
     path('projects/<int:pk>/edit', views.project_edit, name='project_edit'),
 
     path('teammate/new', views.teammate_create, name='teammate_create'),
+    path('teammate/list', views.teammate_list, name='teammate_list'),
     path('teammate/<int:pk>', views.teammate_detail, name='teammate_detail'),
     path('teammate/<int:pk>/edit', views.teammate_edit, name='teammate_edit'),
     path('teammate/<int:pk>/delete', views.teammate_delete, name='teammate_delete'),
