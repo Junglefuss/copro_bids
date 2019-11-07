@@ -4,7 +4,8 @@
   {% for project in projects %}
 
   <li>
-    <a href="">{{ project.code }}: {{ project.name }}</a>
+    <a href="{% url 'bid_create' pk=project.pk %}">{{ project.code }}: {{ project.name }}</a
+    >, Bid Deadline: {{ project.bid_deadline }}
   </li>
 
   {% endfor %}

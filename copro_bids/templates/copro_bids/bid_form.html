@@ -1,9 +1,7 @@
-{% extends 'tunr/base.html' %} {% block content %}
+{% extends 'copro_bids/base.html' %} {% block content %}
 <h1>Create Your Bid</h1>
-<h3>Project: {{ project.name }}({{ project.code }})</h3>
 <form method="POST" class="bid-form">
-  {% csrf_token %}
-  {{ form.as_p }}
+  {% csrf_token %} {{ form.as_p }}
   <button type="submit" class="save btn btn-default">Save</button>
 </form>
 {% endblock %}

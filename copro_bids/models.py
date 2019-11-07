@@ -19,7 +19,7 @@ class Bid(models.Model):
         ('190711', 'Website & Digital Marketing (190711)'),
     )
     project = models.ForeignKey(
-        Project, on_delete=models.CASCADE, related_name='bids', choices=PROJECTS)
+        Project, on_delete=models.CASCADE, related_name='bids')
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=100)
     phases_and_pricing = models.TextField(max_length=700)

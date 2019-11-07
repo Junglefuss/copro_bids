@@ -1,11 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Project, Bid, Teammate
+from .forms import ProjectForm, BidForm, TeammateForm
 
 
 def project_list(request):
     projects = Project.objects.all()
     return render(request, 'copro_bids/project_list.html', {'projects': projects})
+
+
+def project_detail(request, pk):
+    project = Project.objects.get(id=pk)
+    return render(request, 'copro_bids/project_detail.html')
 
 
 def project_create(request):
@@ -66,12 +72,16 @@ def teammate_delete(request, pk):
     return redirect('teammate_list')
 
 
-def bid_create(request):
+def bid_create(request, pk):
+    project = Project.objects.get(id=pk)
     if request.method == 'POST':
         form = BidForm(request.POST)
         if form.is_valid():
             bid = form.save()
-            return redirect('bid_detail', pk=song.pk)
+            return redirect('bid_detail', pk=bid.pk)
+    else:
+        form = BidForm()
+    return render(request, 'copro_bids/bid_form.html', {'form': form})
 
 
 def bid_detail(request, pk):

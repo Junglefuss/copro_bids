@@ -1,0 +1,9 @@
+{% extends 'copro_bids/base.html' %} {% block content %}
+<h2>Project: {{ project.name }} ({{ project.code }})</h2>
+<h3>Bid Deadline: {{ project.bid_deadline }}</h3>
+
+<a href=""><button>Create Your Bid</button></a>
+
+{% endblock %}
+
+<!-- {% url 'bid_create' pk=project.pk %} -->

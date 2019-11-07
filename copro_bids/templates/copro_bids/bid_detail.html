@@ -1,0 +1,32 @@
+{% extends 'copro_bids/base.html' %} {% block content %}
+
+<h2>Your Bid</h2>
+
+<h3>Project:{{ bid.project }}</h3>
+<h3>Submitted by: {{ bid.name }}</h3>
+
+<h3>Your Team</h3>
+<ul>
+  {% for teammate in bid.teammates.all %}
+  <div class="teammate">
+    {{ teammate.name }}
+  </div>
+  {% endfor %}
+</ul>
+
+<h3>Statement</h3>
+<p>{{ bid.statement }}</p>
+
+<h3>Experience & Portfolios</h3>
+<p>{{ bid.website_urls }}</p>
+
+<h3>Work Samples</h3>
+<p>{{ bid.sample_urls }}</p>
+
+<h3>Phases & Pricing</h3>
+<p>{{ bid.phases_and_pricing }}</p>
+
+<h3>Total Price</h3>
+<p>{{ bid.total_price }}</p>
+
+{% endblock %}
