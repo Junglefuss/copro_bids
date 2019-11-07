@@ -37,12 +37,15 @@ def project_edit(request, pk):
     return render(request, 'copro_bids/project_form.html', {'form': form})
 
 
-def teammate_create(request):
+def teammate_create(request, pk):
     if request.method == 'POST':
         form = TeammateForm(request.POST)
         if form.is_valid():
             teammate = form.save()
             return redirect('teammate_detail', pk=teammate.pk)
+    else:
+        teammate = TeammateForm()
+    return render(request, 'copro_bids/teammate_detail.html', {'teammate': teammate})
 
 
 def teammate_list(request):
@@ -72,8 +75,8 @@ def teammate_delete(request, pk):
     return redirect('teammate_list')
 
 
-def bid_create(request, pk):
-    project = Project.objects.get(id=pk)
+def bid_create(request):
+    # project = Project.objects.get(id=pk)
     if request.method == 'POST':
         form = BidForm(request.POST)
         if form.is_valid():
@@ -81,6 +84,7 @@ def bid_create(request, pk):
             return redirect('bid_detail', pk=bid.pk)
     else:
         form = BidForm()
+    # return redirect('teammate_create')
     return render(request, 'copro_bids/bid_form.html', {'form': form})
 
 
@@ -90,7 +94,7 @@ def bid_detail(request, pk):
 
 
 def bid_edit(request, pk):
-    bid = Bid.objects.get(pk=pk)
+    bid = Bid.objects.get(id=pk)
     if request.method == 'POST':
         bid = BidForm(request.POST, instance=bid)
         if form.is_valid():
@@ -99,3 +103,9 @@ def bid_edit(request, pk):
     else:
         form = BidForm(instance=bid)
     return render(request, 'copro_bids/bid_form.html', {'form': form})
+
+
+def bid_delete(request, pk):
+    if request.method == 'POST':
+        Bid.objects.get(id=pk).delete()
+    return redirect('project_list')

@@ -1,0 +1,18 @@
+{% extends 'copro_bids/base.html' %} {% block content %}
+<h2>Your Teammate for {{ bid.project.code }}: {{ bid.project.name }}</h2>
+<h3>Name: {{ teammate.first_name }} </h2>
+<h3>Image: {{ teammate.img_url }} </h2>
+<h3>Role: {{ teammate.role }} </h2>
+<h3>Years Experience: {{ teammate.years_experience }} </h2>
+<h3>City: {{ teammate.city }} </h2>
+<h3>State: {{ teammate.state }} </h2>
+<h3>Profule URLs: {{ teammate.public_profile_urls }} </h2>
+
+<a href="{% url 'teammate_create' %}"
+    ><button type="submit" class="save btn btn-default">Save & Add More</button></a
+  >
+<a href="{% url 'bid_detail' pk=bid.pk%}"
+    ><button type="submit" class="save btn btn-default">Save & Review Bid</button></a
+  >
+
+{% endblock %}

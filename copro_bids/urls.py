@@ -13,7 +13,8 @@ urlpatterns = [
     path('teammate/<int:pk>/edit', views.teammate_edit, name='teammate_edit'),
     path('teammate/<int:pk>/delete', views.teammate_delete, name='teammate_delete'),
 
-    path('bid/new/<int:pk>', views.bid_create, name='bid_create'),
+    path('bid/new/', views.bid_create, name='bid_create'),
     path('bid/<int:pk>', views.bid_detail, name='bid_detail'),
     path('bid/<int:pk>/edit', views.bid_edit, name='bid_edit'),
+    path('bid/<int:pk>/delete', views.bid_delete, name='bid_delete'),
 ]

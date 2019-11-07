@@ -1,0 +1,14 @@
+{% extends 'tunr/base.html' %} {% block content %}
+<h1>Add a Teammate to Your Bid</h1>
+<h3>Project: {{ project.name }}({{ project.code }})</h3>
+<form method="POST" class="bid-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <!-- <a href="{% url 'teammate_create' %}"
+    ><button type="submit" class="save btn btn-default">Save & Add More</button></a
+  >
+  <a href="{% url 'bid_detail' %}"
+    ><button type="submit" class="save btn btn-default">Save & Review Bid</button></a
+  > -->
+</form>
+{% endblock %}

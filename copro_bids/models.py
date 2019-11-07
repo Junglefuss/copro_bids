@@ -13,11 +13,11 @@ class Project(models.Model):
 
 
 class Bid(models.Model):
-    PROJECTS = (
-        ('191101', 'Holiday Digital (191101)'),
-        ('190930', 'Non-Profit Video (190930)'),
-        ('190711', 'Website & Digital Marketing (190711)'),
-    )
+    # PROJECTS = (
+    #     ('191101', 'Holiday Digital (191101)'),
+    #     ('190930', 'Non-Profit Video (190930)'),
+    #     ('190711', 'Website & Digital Marketing (190711)'),
+    # )
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name='bids')
     name = models.CharField(max_length=255)
