@@ -1,4 +1,5 @@
-<h2>Projects Open for Bids</h2>
+{% extends 'copro_bids/base.html' %} {% block content %}
+<h2>Open Projects</h2>
 <ul>
   {% for project in projects %}
 
@@ -8,3 +9,5 @@
 
   {% endfor %}
 </ul>
+
+{% endblock %}
